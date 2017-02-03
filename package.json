@@ -1,0 +1,17 @@
+{
+  "name": "fetch-segmentfault-articles",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "fetch": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^2.1.4",
+    "cheerio": "^0.22.0",
+    "fs-extra": "^2.0.0",
+    "request": "^2.79.0"
+  }
+}
