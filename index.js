@@ -48,9 +48,11 @@ const saveArticle = path => new Promise((resolve, reject) => {
     if (!err && res.statusCode == 200) {
       const $ = cheerio.load(body)
       const fileName = $('#myTitle').attr('value').replace(/\//g, '-')
+      const createDate = $('input[name="created"]').attr('value').replace(/-/g, '/')
       const file = `./articles/${fileName}.md`
+      const text = `title: ${fileName}\ndate: ${createDate}\npermalink: ${articleOptions.url}\n---\n\n${$('#myEditor').text()}`
 
-      fs.outputFile(file, $('#myEditor').text(), function (err) {
+      fs.outputFile(file, text, err => {
         if (err) {
           reject(err)
         } else {
